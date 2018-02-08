@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
@@ -11,7 +11,14 @@
 
 {% block body_block %}
     <h1>Rango says...</h1>
-    <div>Hey there partner!</div>
+    <div>
+    {% if user.is_authenticated %}
+        Hi {{ user.username }}!
+        Welcome to my Rango application!
+    {% else %}
+        Hey there partner!
+    {% endif %}
+    </div>
 
     <h2>Most Liked Categories</h2>
     <div>
